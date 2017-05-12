@@ -20,8 +20,8 @@
 
 pub fn two_sum_1(nums: Vec<usize>, target: usize) -> Vec<usize> {
     let mut v = vec![];
-    for n in 0..nums.len() {
-        if n + 1 < nums.len() && nums[n] + nums[n+1] == target {
+    for n in 0..nums.len()-1 {
+        if nums[n] + nums[n+1] == target {
             v.push(n);
             v.push(n+1);
         }
