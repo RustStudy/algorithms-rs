@@ -23,15 +23,22 @@ fn operate_i32(value: &i32) {
 fn main() {
     use Item::*;
 
+    // 用来表示[3, 2, [1,2,3], [5, [6, 7]]]这样的结构
     let root = vec![
-        Value(1),
+        Value(3),
+        Value(2),
         Collection(vec![
+            Value(1),
             Value(2),
             Value(3),
-            Value(3),
-            Value(3),
         ]),
-        Value(4),
+        Collection(vec![
+            Value(5),
+            Collection(vec![
+                Value(6),
+                Value(7),
+            ]),
+        ]),
     ];
 
     explore(&root, &mut operate_i32);
