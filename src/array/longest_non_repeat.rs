@@ -27,6 +27,10 @@ Note that the answer must be a substring,
 //! assert_eq!(longest_non_repeat::longest_non_repeat_1(s), 3);
 
 //! assert_eq!(longest_non_repeat::longest_non_repeat_2("abcabcbb"), 3);
+//! assert_eq!(longest_non_repeat::longest_non_repeat_2("abcabcdefbb"), 6);
+//! assert_eq!(longest_non_repeat::longest_non_repeat_2("bbbbb"), 1);
+//! assert_eq!(longest_non_repeat::longest_non_repeat_2("pwwkew"), 3);
+
 //! assert_eq!(longest_non_repeat::longest_non_repeat_3("abcabcbb"), "abc");
 //! assert_eq!(longest_non_repeat::longest_non_repeat_3("abcabcdefbb"), "abcdef");
 //! assert_eq!(longest_non_repeat::longest_non_repeat_3("bbbbb"), "b");
