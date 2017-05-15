@@ -27,6 +27,10 @@ Note that the answer must be a substring,
 //! assert_eq!(longest_non_repeat::longest_non_repeat_1(s), 3);
 
 //! assert_eq!(longest_non_repeat::longest_non_repeat_2("abcabcbb"), 3);
+//! assert_eq!(longest_non_repeat::longest_non_repeat_3("abcabcbb"), "abc");
+//! assert_eq!(longest_non_repeat::longest_non_repeat_3("abcabcdefbb"), "abcdef");
+//! assert_eq!(longest_non_repeat::longest_non_repeat_3("bbbbb"), "b");
+//! assert_eq!(longest_non_repeat::longest_non_repeat_3("pwwkew"), "wke");
 
 //! ```
 
@@ -71,4 +75,27 @@ pub fn longest_non_repeat_2(str: &str)  -> usize {
     }
     maxlen
 
+}
+
+// 输出子串
+pub fn longest_non_repeat_3(str: &str)  -> String {
+    let mut last_start = 0;
+    let mut maxlen = 0;
+    let mut s = 0;
+    let mut e = 0;
+    let mut used_char: HashMap<char, usize>  = HashMap::new();
+
+    let letters = str.chars().collect::<Vec<_>>();
+    for i in 0..letters.len() {
+        if used_char.contains_key(&letters[i]) && last_start <=used_char[&letters[i]]{
+            last_start = used_char[&letters[i]] + 1;
+        }else {
+            maxlen =  if maxlen > (i - last_start + 1) { maxlen } else { i - last_start + 1 };
+            s = last_start;
+        }
+        used_char.insert(letters[i], i);
+        e = s+maxlen;
+    }
+    let sub_str = &str[s..e];
+    sub_str.into()
 }
