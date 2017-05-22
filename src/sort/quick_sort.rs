@@ -12,7 +12,6 @@ Quicksort: Complexity: best O(n) avg O(n log(n)), worst O(N^2)
 //! assert_eq!(v, [-5, -2, -1, 0, 1, 2, 4, 5, 9, 10, 23, 43, 57, 64, 65, 100, 242, 423, 564, 1232]);
 //! ```
 
-
 pub fn quick_sort_1(vec: &mut Vec<isize>, first: usize, last: usize) {
     if first < last {
         let pos = partition(vec, first, last);
