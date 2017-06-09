@@ -32,24 +32,14 @@ The above elevation map is represented by array [0,1,0,2,1,0,1,3,2,1,2,1]. In th
 
 pub fn rain(vec: Vec<usize>) -> usize {
     let (mut water_num, mut maxl, mut maxr, mut pl, mut pr) = (0, 0, 0, 0, vec.len() - 1);
-
     while pl <= pr {
         if maxl <= maxr{
-            if maxl < vec[pl] {
-                maxl = vec[pl];
-            }else{
-                water_num += maxl-vec[pl];
-            }
+            if maxl < vec[pl] { maxl = vec[pl]; } else { water_num += maxl-vec[pl]; }
             pl += 1;
         } else {
-            if maxr < vec[pr]{
-                maxr = vec[pr];
-            }else{
-                water_num += maxr-vec[pr];
-            }
-            pr-=1;
+            if maxr < vec[pr]{ maxr = vec[pr]; } else { water_num += maxr-vec[pr]; }
+            pr -= 1;
         }
     }
-
     water_num
 }
